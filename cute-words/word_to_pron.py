@@ -1,7 +1,7 @@
 import pandas as pd
 from pykakasi import kakasi
 
-word_list = pd.read_csv("data/original.csv")
+word_list = pd.read_csv("data/word_list.csv")
 
 kks = kakasi()
 
