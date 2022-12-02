@@ -30,8 +30,10 @@ class PronModel:
 @dataclasses.dataclass
 class Model:
     pron_map: dict[str, PronModel] = field(default_factory=dict)
+    total: int = 0
 
     def add_pron(self, from_pron: str, to_pron: str):
+        self.total += 1
         if from_pron not in self.pron_map.keys():
             self.pron_map[from_pron] = PronModel(pron=from_pron)
 
@@ -39,6 +41,7 @@ class Model:
 
     def add_model(self, model: Model):
         for pron in model.pron_map.keys():
+            self.total += 1
             if pron not in self.pron_map.keys():
                 self.pron_map[pron] = PronModel(pron=pron)
 

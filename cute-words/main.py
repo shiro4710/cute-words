@@ -9,6 +9,7 @@ for v in pd.read_csv("data/word_pron.csv").values:
 
 model = pm.train(word_list)
 
+print(model.total)
 # pprint.pprint(model)
 
 for i in range(10):
