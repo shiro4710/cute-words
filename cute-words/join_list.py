@@ -6,6 +6,8 @@ out_str = "words\n"
 for f in files:
     path = os.path.join("data/web", f)
     if os.path.isfile(path):
+        if os.path.basename(path)[0] == "_":
+            continue
         with open(path) as fs:
             out_str += fs.read()
 
