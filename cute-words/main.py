@@ -9,8 +9,17 @@ for v in pd.read_csv("data/word_pron.csv").values:
 
 model = pm.train(word_list)
 
-print(model.total)
+print("input:", len(word_list))
+print("model:", model.total)
 # pprint.pprint(model)
 
-for i in range(10):
-    print(pm.run(model))
+words = []
+while True:
+    gen = pm.run(model)
+    if len(gen) < 2:
+        continue
+    words.append(gen)
+
+    if 30 <= len(words):
+        break
+pprint.pprint(words)
